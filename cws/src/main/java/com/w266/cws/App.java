@@ -8,8 +8,8 @@ import com.w266.cws.preprocessor.Tagger;
 
 public class App {
 
-    private static final String PKU = "data/train/pku_training.utf8";
-    private static final String MSR = "data/train/msr_training.utf8";
+    private static final String PKU = "data/training/pku_training.utf8";
+    private static final String MSR = "data/training/msr_training.utf8";
 
     private static Tagger tagger = new Tagger();
 
