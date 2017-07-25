@@ -38,7 +38,8 @@ public class TagMain {
 		tagList.stream().forEach(tag -> outputTag(writer, tag));
 	    }
 	} catch (Exception e) {
-	    System.out.println("Failed: " + e);
+	    System.out.println("Failed: ");
+	    e.printStackTrace();
 	}
 	System.out.println("Finished processing corpus " + corpusName);
     }
@@ -48,7 +49,8 @@ public class TagMain {
 	    writer.write(tag);
 	    writer.write("\n");
 	} catch (IOException e) {
-	    System.out.println("Failed to output" + e);
+	    System.out.println("Failed to output: ");
+	    e.printStackTrace();
 	}
     }
 
