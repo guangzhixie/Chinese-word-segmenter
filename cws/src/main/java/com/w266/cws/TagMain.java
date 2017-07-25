@@ -34,7 +34,7 @@ public class TagMain {
 			new OutputStreamWriter(new FileOutputStream(outputFilePath), "utf-8"))) {
 	    String line = null;
 	    while ((line = reader.readLine()) != null) {
-		List<String> tagList = tagger.tagOneLine(line);
+		List<String> tagList = tagger.tagForSentence(line);
 		tagList.stream().forEach(tag -> outputTag(writer, tag));
 	    }
 	} catch (Exception e) {
@@ -59,6 +59,6 @@ public class TagMain {
 
     public static void testRun(String testLine) {
 	System.out.println("Test Run String: " + testLine);
-	System.out.println("Test Run Result: " + tagger.tagOneLine(testLine));
+	System.out.println("Test Run Result: " + tagger.tagForSentence(testLine));
     }
 }
