@@ -11,6 +11,7 @@ import java.util.List;
 
 import com.w266.cws.preprocessor.Tagger;
 import com.w266.cws.util.FilePath;
+import com.w266.cws.util.StringUtil;
 
 public class TagMain {
 
@@ -21,10 +22,10 @@ public class TagMain {
 	tagForCorups(FilePath.MSR_CORPUS, FilePath.MSR_TAG_OUTPUT);
     }
 
-    private static void tagForCorups(String corpusName, String outputFilePath) {
-	System.out.println("Processing corpus " + corpusName + " to " + outputFilePath);
+    private static void tagForCorups(String corpusPath, String outputFilePath) {
+	System.out.println("Processing corpus " + corpusPath + " to " + outputFilePath);
 	try (BufferedReader reader = new BufferedReader(
-		new InputStreamReader(new FileInputStream(corpusName), "utf-8"));
+		new InputStreamReader(new FileInputStream(corpusPath), "utf-8"));
 		BufferedWriter writer = new BufferedWriter(
 			new OutputStreamWriter(new FileOutputStream(outputFilePath), "utf-8"))) {
 	    String line = null;
@@ -36,13 +37,13 @@ public class TagMain {
 	    System.out.println("Failed: ");
 	    e.printStackTrace();
 	}
-	System.out.println("Finished processing corpus " + corpusName);
+	System.out.println("Finished processing corpus " + corpusPath);
     }
 
     private static void outputTag(BufferedWriter writer, String tag) {
 	try {
 	    writer.write(tag);
-	    writer.write("\n");
+	    writer.write(StringUtil.NEWLINE);
 	} catch (IOException e) {
 	    System.out.println("Failed to output: ");
 	    e.printStackTrace();

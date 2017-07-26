@@ -10,6 +10,8 @@ public class StringUtil {
 
     public static final String EMPTY = "";
     public static final String SPACE = " ";
+    public static final String EQUAL = "=";
+    public static final String NEWLINE = "\n";
     public static final String SENTENCE_START = "<s>";
     public static final String SENTENCE_END = "<e>";
 

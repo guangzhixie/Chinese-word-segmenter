@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -58,5 +59,19 @@ public class FeatureExtractor {
 
     public String writeMapAsJsonString(Map<String, String> featureDict) throws JsonProcessingException {
 	return mapper.writeValueAsString(featureDict);
+    }
+
+    public String writeMapAsStringLine(Map<String, String> featureDict) throws JsonProcessingException {
+	StringBuilder sb = new StringBuilder();
+	featureDict.entrySet().forEach(entry -> constructLine(sb, entry));
+	sb.deleteCharAt(sb.length() - 1); // remove last space
+	return sb.toString();
+    }
+
+    private void constructLine(StringBuilder sb, Entry<String, String> entry) {
+	sb.append(entry.getKey());
+	sb.append(StringUtil.EQUAL);
+	sb.append(entry.getValue());
+	sb.append(StringUtil.SPACE);
     }
 }

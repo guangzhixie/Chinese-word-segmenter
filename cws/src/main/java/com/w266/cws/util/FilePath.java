@@ -10,4 +10,8 @@ public class FilePath {
 
     public static final String PKU_FEATURE_PATH = "data/feature/pku_feature.utf8";
     public static final String MSR_FEATURE_PATH = "data/feature/msr_feature.utf8";
+
+    public static final String TRAIN_PATH = "data/feature/train.txt";
+    public static final String MODEL_PATH = "data/model/maxent-model.gz";
+
 }
