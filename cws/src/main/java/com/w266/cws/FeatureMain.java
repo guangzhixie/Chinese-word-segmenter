@@ -12,19 +12,15 @@ import java.util.Map;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.w266.cws.preprocessor.FeatureExtractor;
+import com.w266.cws.util.FilePath;
 
 public class FeatureMain {
-    private static final String PKU = "data/training/pku_training.utf8";
-    private static final String MSR = "data/training/msr_training.utf8";
-
-    private static final String PKU_FEATURE_OUTPUT = "data/feature/pku_feature.utf8";
-    private static final String MSR_FEATURE_OUTPUT = "data/feature/msr_feature.utf8";
 
     private static FeatureExtractor featureExtractor = new FeatureExtractor();
 
     public static void main(String[] args) {
-	extractFeatureForCorups(PKU, PKU_FEATURE_OUTPUT);
-	extractFeatureForCorups(MSR, MSR_FEATURE_OUTPUT);
+	extractFeatureForCorups(FilePath.PKU_CORPUS, FilePath.PKU_FEATURE_PATH);
+	extractFeatureForCorups(FilePath.MSR_CORPUS, FilePath.MSR_FEATURE_PATH);
     }
 
     private static void extractFeatureForCorups(String corpusName, String outputFilePath) {

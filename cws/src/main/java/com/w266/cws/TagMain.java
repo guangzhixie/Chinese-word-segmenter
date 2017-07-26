@@ -10,20 +10,15 @@ import java.io.OutputStreamWriter;
 import java.util.List;
 
 import com.w266.cws.preprocessor.Tagger;
+import com.w266.cws.util.FilePath;
 
 public class TagMain {
-
-    private static final String PKU = "data/training/pku_training.utf8";
-    private static final String MSR = "data/training/msr_training.utf8";
-
-    private static final String PKU_TAG_OUTPUT = "data/feature/pku_tag.utf8";
-    private static final String MSR_TAG_OUTPUT = "data/feature/msr_tag.utf8";
 
     private static Tagger tagger = new Tagger();
 
     public static void main(String[] args) {
-	tagForCorups(PKU, PKU_TAG_OUTPUT);
-	tagForCorups(MSR, MSR_TAG_OUTPUT);
+	tagForCorups(FilePath.PKU_CORPUS, FilePath.PKU_TAG_OUTPUT);
+	tagForCorups(FilePath.MSR_CORPUS, FilePath.MSR_TAG_OUTPUT);
     }
 
     private static void tagForCorups(String corpusName, String outputFilePath) {
