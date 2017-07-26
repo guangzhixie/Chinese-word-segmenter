@@ -36,16 +36,16 @@ public class FeatureExtractor {
 
 	    boolean isPunctuation = StringUtil.isPunctuation(c0);
 
-	    featureDict.put("c-2", c_2);
-	    featureDict.put("c-1", c_1);
+	    featureDict.put("c_2", c_2);
+	    featureDict.put("c_1", c_1);
 	    featureDict.put("c0", c0);
 	    featureDict.put("c1", c1);
 	    featureDict.put("c2", c2);
-	    featureDict.put("c-2c-1", c_2 + c_1);
-	    featureDict.put("c-1c0", c_1 + c0);
+	    featureDict.put("c_2c_1", c_2 + c_1);
+	    featureDict.put("c_1c0", c_1 + c0);
 	    featureDict.put("c0c1", c0 + c1);
 	    featureDict.put("c1c2", c1 + c2);
-	    featureDict.put("c-1c1", c_1 + c1);
+	    featureDict.put("c_1c1", c_1 + c1);
 	    featureDict.put("pu", String.valueOf(isPunctuation));
 	    featureDict.put("T", t_2.getTypeNumber() + t_1.getTypeNumber() + t0.getTypeNumber() + t1.getTypeNumber()
 		    + t2.getTypeNumber());
