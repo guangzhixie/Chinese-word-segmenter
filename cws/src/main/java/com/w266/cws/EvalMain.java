@@ -31,14 +31,16 @@ public class EvalMain {
 			new InputStreamReader(new FileInputStream(FilePath.MSR_TAG_OUTPUT), "utf-8"))) {
 
 	    String line = null;
-	    String expectedTag = tagReader.readLine();
+	    String expectedTag = null;
 
 	    int correctCount = 0;
 	    for (int i = 0; i < 1000; i++) {
 		line = featureReader.readLine();
+		expectedTag = tagReader.readLine();
 		// Now predicting the outcome using the loaded model
 		double[] outcomeProbs = loadedMaxentModel.eval(line.split(StringUtil.SPACE));
-		String outcome = loadedMaxentModel.getBestOutcome(outcomeProbs);
+		String outcome = loadedMaxentModel.getBestOutcome(outcomeProbs).replace("tag=", StringUtil.EMPTY);
+		System.out.println(outcome + " vs " + expectedTag);
 		if (expectedTag.equals(outcome)) {
 		    correctCount++;
 		}
