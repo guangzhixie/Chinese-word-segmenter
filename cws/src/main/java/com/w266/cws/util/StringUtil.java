@@ -32,7 +32,9 @@ public class StringUtil {
     }
 
     public static CharacterType getCharacterType(String s) {
-	if (s.matches(DIGIT_PATTERN) || NUMBER_CHARS.contains(s)) {
+	if (s.equals(SENTENCE_START) || s.equals(SENTENCE_END)) {
+	    return CharacterType.BOUNDARY;
+	} else if (s.matches(DIGIT_PATTERN) || NUMBER_CHARS.contains(s)) {
 	    return CharacterType.NUMBER;
 	} else if (DATE_CHARS.contains(s)) {
 	    return CharacterType.DATE;

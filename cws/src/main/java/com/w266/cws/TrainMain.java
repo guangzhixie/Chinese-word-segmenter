@@ -26,7 +26,7 @@ public class TrainMain {
 	    while ((tagLine = tagReader.readLine()) != null && (featureLine = featureReader.readLine()) != null) {
 		if (!tagLine.equals(StringUtil.NEWLINE) && !featureLine.equals(StringUtil.NEWLINE)) {
 		    StringBuilder sb = new StringBuilder();
-		    sb.append("tag=");
+		    // sb.append("tag=");
 		    sb.append(tagLine);
 		    sb.append(StringUtil.SPACE);
 		    sb.append(featureLine);

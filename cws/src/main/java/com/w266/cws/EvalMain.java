@@ -39,7 +39,7 @@ public class EvalMain {
 		expectedTag = tagReader.readLine();
 		// Now predicting the outcome using the loaded model
 		double[] outcomeProbs = loadedMaxentModel.eval(line.split(StringUtil.SPACE));
-		String outcome = loadedMaxentModel.getBestOutcome(outcomeProbs).replace("tag=", StringUtil.EMPTY);
+		String outcome = loadedMaxentModel.getBestOutcome(outcomeProbs);
 		System.out.println(outcome + " vs " + expectedTag);
 		if (expectedTag.equals(outcome)) {
 		    correctCount++;
